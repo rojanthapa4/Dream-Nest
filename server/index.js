@@ -12,17 +12,11 @@ app.use(express.static("public"));
 
 /* ROUTES */
 app.use("/auth", authRoutes)
-app.use("/properties", listingRoutes)
-app.use("/bookings", bookingRoutes)
-app.use("/users", userRoutes)
 
-/* MONGOOSE SETUP */
 const PORT = 3001;
 mongoose
-  .connect(process.env.MONGO_URL, {
+  .connect('mongodb://localhost:27017/', {
     dbName: "Dream_Nest",
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
   })
   .then(() => {
     app.listen(PORT, () => console.log(`Server Port: ${PORT}`));
