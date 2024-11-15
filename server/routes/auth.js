@@ -66,34 +66,33 @@ router.post("/register", upload.single("profileImage"), async (req, res) => {
   }
 });
 
-// /* USER LOGIN*/
-// router.post("/login", async (req, res) => {
-//   try {
-//     /* Take the infomation from the form */
-//     const { email, password } = req.body
+/* USER LOGIN */
+router.post('/login', async(req, res) => {
+  try {
 
-//     /* Check if user exists */
-//     const user = await User.findOne({ email });
-//     if (!user) {
-//       return res.status(409).json({ message: "User doesn't exist!" });
-//     }
+    /* Take the information from the form */
+    const {email, password} = req.body;
 
-//     /* Compare the password with the hashed password */
-//     const isMatch = await bcrypt.compare(password, user.password)
-//     if (!isMatch) {
-//       return res.status(400).json({ message: "Invalid Credentials!"})
-//     }
+    /* Check if user exists */
+    const user = await User.findOne({ email });
+    if (!user) {
+      return res.status(409).json({ message: "User doesn't exists!" });
+    }
 
-//     /* Generate JWT token */
-//     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET)
-//     delete user.password
+    /* Compare the password with the hashed password */
+    const isMatch = await bcrypt.compare(password, user.password);
+    if(!isMatch){
+      return res.status(409).json({message: 'Invalid Credentials'})
+    }
 
-//     res.status(200).json({ token, user })
+    const token = jwt.sign({id: user._id}, process.env.JWT_SECRET)
+    delete user.password
 
-//   } catch (err) {
-//     console.log(err)
-//     res.status(500).json({ error: err.message })
-//   }
-// })
+    res.status(200).json({token, user})
+  } catch (error) {
+    console.log(error);
+    return res(500).json({error: error.message})
+  }
+})
 
 module.exports = router
