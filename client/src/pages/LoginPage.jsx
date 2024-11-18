@@ -49,13 +49,13 @@ const LoginPage = () => {
           type="email" 
           placeholder="Email" 
           value={email} 
-          onChange={(e)=>e.target.value} 
+          onChange={(e)=> setEmail(e.target.value)} 
           required />
           <input
             type="password"
             placeholder="Password"
             value={password}
-            onChange={(e)=>e.target.value} 
+            onChange={(e)=> setPassword(e.target.value)} 
             required
           />
           <button type="submit">LOG IN</button>
