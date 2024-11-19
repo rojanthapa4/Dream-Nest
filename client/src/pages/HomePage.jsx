@@ -1,8 +1,12 @@
-import React from 'react'
+import NavBar from '../components/NavBar'
+import Slide from '../components/Slide'
 
 const HomePage = () => {
   return (
-    <div>HomePage</div>
+    <>
+    <NavBar />
+    <Slide />
+    </>   
   )
 }
 
