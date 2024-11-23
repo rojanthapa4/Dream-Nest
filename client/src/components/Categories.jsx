@@ -16,7 +16,7 @@ const Categories = () => {
         {categories?.slice(1, 7).map((category, index) => (
             <Link to=''>
                 <div className="category" key={index}>
-                    <img src="{category.img}" alt="category.label" />
+                    <img src={category.img} alt="category.label" />
                     <div className="overlay"></div>
                     <div className="category_text">
                         <div className="category_text_icon">{category.icon}</div>
