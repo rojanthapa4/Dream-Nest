@@ -64,7 +64,7 @@
         cursor: pointer;
         transition: 0.2s ease;
 
-        &_icon {
+        .category-icon {
           font-size: 30px;
           color: black;
         }
@@ -103,7 +103,7 @@
         cursor: pointer;
         transition: 0.3s ease;
 
-        &_text {
+        .type-text {
           max-width: 400px;
 
           h4 {
@@ -111,7 +111,7 @@
           }
         }
 
-        &_icon {
+        .type-icon {
           font-size: 30px;
         }
 
@@ -180,7 +180,7 @@
           font-weight: 600;
         }
 
-        &_count {
+        .basic_count {
           display: flex;
           align-items: center;
           gap: 9px;
@@ -190,7 +190,7 @@
     }
   }
 
-  &_step2 {
+  .create_listing_step2 {
     background-color: white;
     padding: 30px 40px;
     border-radius: 20px;
@@ -230,7 +230,7 @@
         cursor: pointer;
         transition: 0.2s ease;
 
-        &_icon {
+        .facility_icon {
           font-size: 30px;
         }
 
